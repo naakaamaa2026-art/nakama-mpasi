@@ -1,0 +1,80 @@
+---
+---
+
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
+  <!-- Popup Quick Menu (Hidden by default, toggled or hovered) -->
+  <div id="wa-popup" class="hidden mb-3 w-72 bg-white dark:bg-slate-800 rounded-3xl p-4 shadow-2xl border border-pink-200 dark:border-slate-700 animate-fade-in">
+    <div class="flex items-center justify-between pb-3 border-b border-pink-100 dark:border-slate-700">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm shadow-md">
+          💬
+        </div>
+        <div>
+          <h4 class="text-xs font-extrabold text-gray-900 dark:text-white">Konsultasi MPASI Mamachy</h4>
+          <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Tim Nutrisi Online
+          </p>
+        </div>
+      </div>
+      <button id="wa-close" class="text-gray-400 hover:text-gray-600 text-sm font-bold px-1">✕</button>
+    </div>
+
+    <p class="text-xs text-gray-600 dark:text-gray-300 my-3 leading-relaxed">
+      Halo Ma! Ada yang bisa kami bantu untuk menu MPASI si kecil hari ini?
+    </p>
+
+    <div class="space-y-2">
+      <a
+        href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20konsultasi%20menu%20MPASI%20anak%20saya"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 dark:text-gray-200 bg-pink-50 dark:bg-slate-700 hover:bg-pink-100 hover:text-brand-600 transition-colors"
+      >
+        👶 Konsultasi MPASI & GTM
+      </a>
+      <a
+        href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20Paket%20MPASI%20Mamachy"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 dark:text-gray-200 bg-pink-50 dark:bg-slate-700 hover:bg-pink-100 hover:text-brand-600 transition-colors"
+      >
+        🛒 Pesan Paket MPASI Mamachy
+      </a>
+      <a
+        href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20minta%20rekomendasi%20varian%20MPASI%20zat%20besi"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-gray-700 dark:text-gray-200 bg-pink-50 dark:bg-slate-700 hover:bg-pink-100 hover:text-brand-600 transition-colors"
+      >
+        🥩 Tanya Menu Tinggi Zat Besi
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating Main Button -->
+  <button
+    id="wa-toggle-btn"
+    aria-label="Konsultasi WhatsApp Mamachy"
+    class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-xl shadow-emerald-500/30 hover:scale-105 transition-all duration-300"
+  >
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+    </svg>
+    <span class="hidden sm:inline">Tanya MPASI via WA</span>
+  </button>
+</div>
+
+<script is:inline>
+  const waToggleBtn = document.getElementById('wa-toggle-btn');
+  const waPopup = document.getElementById('wa-popup');
+  const waClose = document.getElementById('wa-close');
+
+  waToggleBtn?.addEventListener('click', () => {
+    waPopup?.classList.toggle('hidden');
+  });
+
+  waClose?.addEventListener('click', () => {
+    waPopup?.classList.add('hidden');
+  });
+</script>

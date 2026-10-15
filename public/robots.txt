@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://makananbayi.vercel.app
+
+# Sitemaps
+Sitemap: https://makananbayi.vercel.app/sitemap-index.xml
+Sitemap: https://makananbayi.vercel.app/sitemap-0.xml

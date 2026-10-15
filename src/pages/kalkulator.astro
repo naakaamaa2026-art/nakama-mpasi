@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MpasiCalculator from '../components/MpasiCalculator.astro';
+
+const breadcrumbs = [
+  { name: 'Kalkulator MPASI', url: '/kalkulator' }
+];
+
+const metaDescription = "Hitung kebutuhan nutrisi, tekstur, porsi, dan jadwal MPASI bayi usia 6-24 bulan secara presisi dengan Kalkulator MPASI Mamachy. Mencegah stunting & GTM.";
+---
+
+<Layout
+  title="Kalkulator MPASI & Nutrisi Bayi Interaktif | Mamachy"
+  description={metaDescription}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="py-12 bg-gradient-to-b from-pink-50/60 via-white to-pink-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="text-center max-w-3xl mx-auto my-8 space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/80 px-4 py-1.5 rounded-full inline-block">
+          Fitur Edukasi Spesial Mamachy
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          Kalkulator <span class="pink-gradient-text">MPASI & Nutrisi Bayi</span>
+        </h1>
+        <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          Gunakan kalkulator pintar ini untuk mengetahui porsi makan ideal, jadwal pemberian, kecukupan zat besi, serta tekstur puree/saring/tim yang tepat untuk <strong class="text-brand-600 dark:text-pink-400">menemani tumbuh kembang anak</strong> mama.
+        </p>
+      </div>
+
+      <!-- Main Mpasi Calculator Component -->
+      <MpasiCalculator />
+
+      <!-- Educational FAQ / Tips Box -->
+      <div class="max-w-4xl mx-auto my-16 space-y-8">
+        <div class="text-center space-y-2">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Tips Pemberian MPASI Menurut Ikatan Dokter Anak Indonesia (IDAI)</h2>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Prinsip dasar 4 bintang MPASI seimbang untuk pencegahan stunting</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-pink-100 dark:border-slate-700 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-slate-700 text-brand-600 dark:text-pink-400 font-bold flex items-center justify-center text-lg">
+              🥩
+            </div>
+            <h3 class="text-base font-bold text-gray-900 dark:text-white">Wajib Protein Hewani Sejak Hari Pertama</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              IDAI merekomendasikan protein hewani (hati ayam, daging sapi, telur, ikan) disajikan setiap hari sejak awal 6 bulan untuk memenuhi 97% kebutuhan zat besi bayi.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-pink-100 dark:border-slate-700 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-slate-700 text-brand-600 dark:text-pink-400 font-bold flex items-center justify-center text-lg">
+              🥣
+            </div>
+            <h3 class="text-base font-bold text-gray-900 dark:text-white">Naik Tekstur Bertahap Tepat Waktu</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              Jangan terlambat naik tekstur! Usia 6 bulan puree lumat, 9 bulan cincang halus/kasar, 12 bulan makanan keluarga. Keterlambatan naik tekstur bisa memicu GTM dan keterlambatan oromotor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Banner CTA Bottom -->
+        <div class="p-8 rounded-3xl bg-gradient-to-r from-brand-600 to-pink-600 text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold">Bingung Menentukan Menu MPASI Si Kecil?</h3>
+            <p class="text-xs text-pink-100">Tim spesialis nutrisi Mamachy siap memberikan saran gratis via WhatsApp!</p>
+          </div>
+          <a
+            href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20konsultasi%20Kalkulator%20MPASI"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-3.5 rounded-full text-xs font-extrabold text-brand-700 bg-white hover:bg-pink-50 shadow-md shrink-0 transition-all"
+          >
+            Konsultasi Gratis Sekarang
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

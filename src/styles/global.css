@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #FFFBF7;
+    --text-main: #1F2937;
+    --card-bg: rgba(255, 255, 255, 0.85);
+  }
+
+  .dark {
+    --bg-main: #0F172A;
+    --text-main: #F8FAFC;
+    --card-bg: rgba(30, 41, 59, 0.85);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom Utilities for Edukasi MPASI Theme */
+.pink-gradient-text {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 50%, #9D174D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink-glass {
+  background: rgba(255, 240, 245, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 114, 182, 0.2);
+}
+
+.dark .pink-glass {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(219, 39, 119, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF0F5;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F472B6;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EC4899;
+}

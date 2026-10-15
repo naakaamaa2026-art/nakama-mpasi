@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getPublishedPosts } from '../lib/notion';
+
+// Fetch 3 artikel terbaru dari Notion API
+const allPosts = await getPublishedPosts();
+const latestPosts = allPosts.slice(0, 3);
+
+const metaDescription = "Website edukasi makanan pendamping bayi (MPASI) terlengkap untuk mama muda. Dapatkan varian produk MPASI Mamachy organik kaya zat besi untuk tumbuh kembang anak.";
+---
+
+<Layout
+  title="Makanan Bayi & MPASI Mamachy - Edukasi Nutrisi MPASI Mama Muda"
+  description={metaDescription}
+>
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. Fitur Unggulan / Why Choose Us (3 Poin) -->
+  <section class="py-16 sm:py-24 bg-white dark:bg-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/60 px-4 py-1.5 rounded-full inline-block">
+          Mengapa Pilih MPASI Mamachy?
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          3 Keunggulan Utama Makanan Bayi Mamachy
+        </h2>
+        <p class="text-base text-gray-600 dark:text-gray-300">
+          Dirancang khusus untuk membantu mama muda menyajikan makanan pendamping bayi terbaik dengan nutrisi utuh tanpa repot.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Poin 1 -->
+        <div class="p-8 rounded-3xl bg-pink-50/50 dark:bg-slate-800/80 border border-pink-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-500 to-brand-400 text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-pink-200 dark:shadow-none group-hover:scale-110 transition-transform">
+            🥩
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            1. Kaya Protein Hewani & Zat Besi Dini
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Diformulasikan sesuai standar WHO dengan kandungan hati ayam, daging sapi, dan salmon segar untuk mencegah anemia dan stunting pada bayi.
+          </p>
+        </div>
+
+        <!-- Poin 2 -->
+        <div class="p-8 rounded-3xl bg-pink-50/50 dark:bg-slate-800/80 border border-pink-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-500 to-brand-400 text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-pink-200 dark:shadow-none group-hover:scale-110 transition-transform">
+            🌿
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            2. 100% Alami & Tanpa Pengawet Sintetis
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Bebas garam tambahan, gula berlebih, dan MSG. Diproses secara higienis menggunakan teknologi pembekuan cepat (blast freezing) yang menjaga kualitas gizi.
+          </p>
+        </div>
+
+        <!-- Poin 3 -->
+        <div class="p-8 rounded-3xl bg-pink-50/50 dark:bg-slate-800/80 border border-pink-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-500 to-brand-400 text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-pink-200 dark:shadow-none group-hover:scale-110 transition-transform">
+            ⏰
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            3. Praktis Siap Saji dalam 5 Menit
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Sangat efisien untuk mama muda berkarir maupun produktif di rumah. Tinggal kukus atau hangatkan, MPASI lezat siap disajikan kapan saja.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Section Blog Terbaru (3 Post dari Notion) -->
+  <section class="py-16 sm:py-24 bg-pink-50/40 dark:bg-slate-950/60 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="space-y-3">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400">
+            Edukasi Makanan Pendamping Bayi
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Artikel MPASI Terbaru dari Notion CMS
+          </h2>
+        </div>
+
+        <a
+          href="/blog"
+          class="inline-flex items-center text-sm font-bold text-brand-600 dark:text-pink-400 hover:text-brand-700 gap-2 group"
+        >
+          <span>Lihat Semua Artikel</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Blog Grid (3 Terbaru) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {latestPosts.map((post) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. CTA Utama Section: "menemani tumbuh kembang anak" -->
+  <section class="py-20 bg-gradient-to-r from-brand-600 via-brand-500 to-pink-600 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+      <span class="px-4 py-1.5 rounded-full text-xs font-extrabold bg-white/20 text-white backdrop-blur-md inline-block uppercase tracking-wider">
+        Komitmen Makanan Bayi & MPASI Mamachy
+      </span>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+        Siap <span class="underline decoration-pink-300 underline-offset-8">Menemani Tumbuh Kembang Anak</span> Lebih Sehat & Ceria?
+      </h2>
+
+      <p class="text-lg text-pink-100 max-w-2xl mx-auto leading-relaxed">
+        Berikan yang terbaik untuk 1000 Hari Pertama Kehidupan buah hati mama. Pesan varian MPASI Mamachy sekarang dan dapatkan gratis panduan resep MPASI 6-24 bulan!
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/produk"
+          class="w-full sm:w-auto px-9 py-4 rounded-full text-base font-extrabold text-brand-700 bg-white hover:bg-pink-50 shadow-xl hover:scale-105 transition-all"
+        >
+          Beli Paket MPASI Mamachy Sekarang
+        </a>
+        <a
+          href="/kontak"
+          class="w-full sm:w-auto px-9 py-4 rounded-full text-base font-bold text-white border-2 border-white/40 hover:bg-white/10 backdrop-blur-md transition-all"
+        >
+          Konsultasi Gratis via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

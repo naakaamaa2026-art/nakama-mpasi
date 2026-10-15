@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getPublishedPosts } from '../../lib/notion';
+
+const posts = await getPublishedPosts();
+
+// Ekstrak semua tag unik dari Notion Database
+const allTags = Array.from(
+  new Set(posts.flatMap((post) => post.tags))
+);
+
+const breadcrumbs = [
+  { name: 'Blog Edukasi MPASI', url: '/blog' }
+];
+
+const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama muda. Pelajari jadwal MPASI, resep kaya zat besi, pencegahan GTM, dan tips nutrisi bayi dari dokter spesialis anak.";
+---
+
+<Layout
+  title="Blog Edukasi MPASI & Nutrisi Bayi | Makanan Bayi Mamachy"
+  description={metaDescription}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="bg-gradient-to-b from-pink-50/60 to-white dark:from-slate-900 dark:to-slate-950 py-12 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbs} />
+
+      <!-- Header Section -->
+      <div class="text-center max-w-3xl mx-auto my-8 space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/80 px-4 py-1.5 rounded-full inline-block">
+          Edukasi Makanan Pendamping Bayi
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          Pusat Edukasi <span class="pink-gradient-text">MPASI & Nutrisi Bayi</span>
+        </h1>
+        <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          Temukan ratusan tips medis terpercaya, resep olahan MPASI Mamachy, dan panduan tumbuh kembang si kecil yang ditulis khusus untuk mama muda Indonesia.
+        </p>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="max-w-2xl mx-auto mb-10 space-y-4">
+        <!-- Live Search Input -->
+        <div class="relative">
+          <input
+            type="text"
+            id="blog-search"
+            placeholder="Cari topik MPASI (contoh: Zat Besi, GTM, 6 Bulan)..."
+            class="w-full px-5 py-3.5 pl-12 rounded-full border border-pink-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-400 text-sm font-medium shadow-sm focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all"
+          />
+          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+
+        <!-- Tag Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2" id="tag-filter-container">
+          <button
+            data-tag="all"
+            class="tag-btn px-4 py-2 rounded-full text-xs font-bold text-white bg-brand-500 shadow-md transition-all active-tag"
+          >
+            Semua Artikel ({posts.length})
+          </button>
+          {allTags.map((tag) => (
+            <button
+              data-tag={tag}
+              class="tag-btn px-4 py-2 rounded-full text-xs font-bold text-gray-700 dark:text-gray-200 bg-white dark:bg-slate-800 border border-pink-200 dark:border-slate-700 hover:border-brand-400 transition-all"
+            >
+              #{tag}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Articles Grid Card -->
+      <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <div
+            class="post-wrapper"
+            data-title={post.title.toLowerCase()}
+            data-excerpt={post.excerpt.toLowerCase()}
+            data-tags={post.tags.map(t => t.toLowerCase()).join(',')}
+          >
+            <BlogCard post={post} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty State Result -->
+      <div id="empty-state" class="hidden text-center py-16 bg-white dark:bg-slate-800 rounded-3xl p-8 border border-pink-100 dark:border-slate-700 my-8">
+        <span class="text-4xl mb-3 block">🔍</span>
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Tidak ada artikel yang cocok</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Coba kata kunci lain atau pilih kategori topik di atas.</p>
+      </div>
+
+      <!-- Bottom Banner CTA -->
+      <div class="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-pink-100 via-pink-50 to-white dark:from-slate-800 dark:to-slate-900 border border-pink-200 dark:border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div class="space-y-2 text-center md:text-left">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Punya Pertanyaan Seputar MPASI Si Kecil?</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">Tim AHLI Nutrisi Mamachy siap membantumu kapan saja via WhatsApp!</p>
+        </div>
+        <a
+          href="/kontak"
+          class="px-8 py-3.5 rounded-full text-sm font-extrabold text-white bg-brand-600 hover:bg-brand-700 shadow-md shrink-0 transition-all"
+        >
+          Konsultasi Gratis Sekarang
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script is:inline>
+    const searchInput = document.getElementById('blog-search');
+    const tagBtns = document.querySelectorAll('.tag-btn');
+    const postWrappers = document.querySelectorAll('.post-wrapper');
+    const emptyState = document.getElementById('empty-state');
+
+    let currentTag = 'all';
+
+    function filterPosts() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      let visibleCount = 0;
+
+      postWrappers.forEach((el) => {
+        const title = el.getAttribute('data-title') || '';
+        const excerpt = el.getAttribute('data-excerpt') || '';
+        const tags = el.getAttribute('data-tags') || '';
+
+        const matchesQuery = !query || title.includes(query) || excerpt.includes(query) || tags.includes(query);
+        const matchesTag = currentTag === 'all' || tags.includes(currentTag.toLowerCase());
+
+        if (matchesQuery && matchesTag) {
+          el.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    searchInput?.addEventListener('input', filterPosts);
+
+    tagBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tagBtns.forEach((b) => {
+          b.classList.remove('bg-brand-500', 'text-white', 'shadow-md', 'active-tag');
+          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-gray-700', 'dark:text-gray-200');
+        });
+
+        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-gray-700', 'dark:text-gray-200');
+        btn.classList.add('bg-brand-500', 'text-white', 'shadow-md', 'active-tag');
+
+        currentTag = btn.getAttribute('data-tag') || 'all';
+        filterPosts();
+      });
+    });
+  </script>
+</Layout>

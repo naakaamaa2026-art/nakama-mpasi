@@ -1,0 +1,40 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import type { Props as SEOProps } from '../components/SEO.astro';
+import '../styles/global.css';
+
+export interface Props extends SEOProps {}
+
+const seoProps = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <SEO {...seoProps} />
+    <script is:inline>
+      // Avoid FOUC (Flash of Unstyled Content) on dark mode load
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+    <Navbar />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+    <WhatsAppWidget />
+  </body>
+</html>

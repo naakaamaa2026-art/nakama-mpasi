@@ -1,0 +1,121 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  author?: string;
+  publishDate?: string;
+  modifiedDate?: string;
+  jsonLdType?: 'Article' | 'WebSite';
+  breadcrumbs?: Array<{ name: string; url?: string; item?: string }>;
+}
+
+const {
+  title = 'Makanan Bayi | Solusi Edukasi MPASI Mamachy untuk Mama Muda',
+  description = 'Portal edukasi MPASI terlengkap dan produk MPASI Mamachy sehat, kaya zat besi, dan bebas pengawet untuk menemani tumbuh kembang anak secara optimal.',
+  image = 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1200&q=80',
+  canonical = Astro.url.href,
+  type = 'website',
+  author = 'Tim Nutrisi Mamachy',
+  publishDate,
+  modifiedDate,
+  jsonLdType = 'WebSite',
+  breadcrumbs = [],
+} = Astro.props;
+
+const siteName = 'Makanan Bayi - MPASI Mamachy';
+const fullTitle = title.includes('Makanan Bayi') ? title : `${title} | Makanan Bayi`;
+
+// JSON-LD Organization Schema
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Makanan Bayi',
+  url: 'https://makananbayi.vercel.app',
+  logo: 'https://makananbayi.vercel.app/favicon.svg',
+  description: 'Spesialis Makanan Pendamping ASI (MPASI Mamachy) & Portal Edukasi Nutrisi Bayi',
+  sameAs: ['https://instagram.com/mpasi_mamachy', 'https://tiktok.com/@mpasi_mamachy'],
+};
+
+// JSON-LD Article Schema
+const articleSchema = jsonLdType === 'Article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  image: [image],
+  datePublished: publishDate || new Date().toISOString(),
+  dateModified: modifiedDate || publishDate || new Date().toISOString(),
+  author: {
+    '@type': 'Person',
+    name: author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Makanan Bayi',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://makananbayi.vercel.app/favicon.svg',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonical,
+  },
+} : null;
+
+// JSON-LD Breadcrumb Schema
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, index) => {
+    const rawUrl = crumb.url || crumb.item || '';
+    const fullUrl = rawUrl.startsWith('http') ? rawUrl : `https://makananbayi.vercel.app${rawUrl}`;
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: fullUrl,
+    };
+  }),
+} : null;
+---
+
+<!-- Technical Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+
+<!-- Google Fonts Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="id_ID" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- JSON-LD Structured Data Schemas -->
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
