@@ -44,31 +44,31 @@ const metaDescription = "Katalog resmi MPASI Mamachy. Makanan bayi organik kaya 
   description={metaDescription}
   breadcrumbs={breadcrumbs}
 >
-  <section class="py-16 bg-gradient-to-b from-pink-50/60 via-white to-pink-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 transition-colors">
+  <section class="py-16 bg-gradient-to-b from-[#FAF8EE] via-[#F5F3E0] to-[#FAF8EE] min-h-screen transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <Breadcrumbs items={breadcrumbs} />
 
       <div class="text-center max-w-3xl mx-auto my-10 space-y-4">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/80 px-4 py-1.5 rounded-full inline-block">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#B7410E] bg-[#FAF0E6] px-4 py-1.5 rounded-full inline-block border border-[#B7410E]/30 shadow-sm">
           Produk Unggulan Mamachy
         </span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-[#2D241E] tracking-tight">
           Varian Sehat <span class="pink-gradient-text">MPASI Mamachy</span>
         </h1>
-        <p class="text-base text-gray-600 dark:text-gray-300">
-          Setiap menu diracik berdasarkan standar kecukupan gizi angka gizi harian (AKG) anak untuk <strong class="text-brand-600 dark:text-pink-400">menemani tumbuh kembang anak</strong> secara optimal.
+        <p class="text-base text-[#4E443C]">
+          Setiap menu diracik berdasarkan standar kecukupan angka gizi harian (AKG) anak untuk <strong class="text-[#B7410E] font-bold">menemani tumbuh kembang anak</strong> secara optimal.
         </p>
       </div>
 
       <!-- Product Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
         {products.map((item) => (
-          <div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-pink-100 dark:border-slate-700 shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="bg-[#FAF8EE] rounded-3xl overflow-hidden border border-[#DFD8B4] hover:border-[#B7410E] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="relative aspect-video">
                 <img src={item.image} alt={`${item.name} - Makanan bayi`} loading="lazy" class="w-full h-full object-cover" />
-                <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-extrabold bg-white/90 text-brand-600 backdrop-blur-md shadow-sm">
+                <span class="absolute top-3 right-3 px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#FAF8EE] text-[#B7410E] border border-[#B7410E]/30 backdrop-blur-md shadow-md">
                   {item.stage}
                 </span>
               </div>
@@ -76,24 +76,24 @@ const metaDescription = "Katalog resmi MPASI Mamachy. Makanan bayi organik kaya 
               <div class="p-6 space-y-3">
                 <div class="flex flex-wrap gap-1.5">
                   {item.tags.map((t) => (
-                    <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold text-brand-700 dark:text-pink-300 bg-pink-100 dark:bg-slate-700">
+                    <span class="px-2.5 py-0.5 rounded-md text-[10px] font-extrabold text-[#B7410E] bg-[#FAF0E6] border border-[#B7410E]/20">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">{item.name}</h3>
-                <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
+                <h3 class="text-xl font-bold text-[#2D241E]">{item.name}</h3>
+                <p class="text-xs text-[#4E443C] leading-relaxed">{item.description}</p>
               </div>
             </div>
 
             <div class="p-6 pt-0 space-y-4">
-              <div class="text-lg font-extrabold text-brand-600 dark:text-pink-400">{item.price}</div>
+              <div class="text-xl font-extrabold text-[#B7410E]">{item.price}</div>
               <a
                 href={`https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20${encodeURIComponent(item.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block w-full text-center py-3 rounded-full text-sm font-bold text-white bg-brand-500 hover:bg-brand-600 shadow-md transition-all"
+                class="block w-full text-center py-3.5 rounded-full text-sm font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/25 transition-all"
               >
                 Pesan via WhatsApp
               </a>

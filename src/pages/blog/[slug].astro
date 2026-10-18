@@ -2,9 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BlogCard from '../../components/BlogCard.astro';
-import { getPublishedPosts, getPostBySlug, getNotionBlocks, getRelatedPosts } from '../../lib/notion';
+import { getPublishedPosts, getPostBySlug, getPostBlocks } from '../../lib/notion';
 
-// Static Paths untuk SSG (Static Site Generation)
+// Static Paths untuk Astro SSG Build
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
   return posts.map((post) => ({
@@ -13,35 +13,25 @@ export async function getStaticPaths() {
   }));
 }
 
-const { slug } = Astro.params;
-let { post } = Astro.props;
+const { post } = Astro.props;
+const blocks = await getPostBlocks(post.id);
 
-if (!post && slug) {
-  const fetchedPost = await getPostBySlug(slug);
-  if (fetchedPost) {
-    post = fetchedPost;
-  }
-}
-
-if (!post) {
-  return Astro.redirect('/blog');
-}
-
-// Fetch Notion blocks (isi konten artikel) & artikel terkait
-const blocks = await getNotionBlocks(post.id, post.slug);
-const relatedPosts = await getRelatedPosts(post.slug, post.tags, 3);
-
-const pageTitle = `${post.title} | Makanan Bayi`;
-const breadcrumbs = [
-  { name: 'Blog Edukasi', url: '/blog' },
-  { name: post.title, url: '' },
-];
+// Fetch artikel terkait (ambil 3 artikel lain selain artikel yang sedang aktif)
+const allPosts = await getPublishedPosts();
+const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
 const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const pageTitle = `${post.title} | Makanan Bayi & MPASI Mamachy`;
+
+const breadcrumbs = [
+  { name: 'Blog Edukasi', url: '/blog' },
+  { name: post.title, url: `/blog/${post.slug}` }
+];
 ---
 
 <Layout
@@ -54,7 +44,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
   jsonLdType="Article"
   breadcrumbs={breadcrumbs}
 >
-  <article class="py-12 bg-white dark:bg-slate-900 transition-colors">
+  <article class="py-12 bg-gradient-to-b from-[#FAF8EE] via-[#F5F3E0] to-[#FAF8EE] min-h-screen transition-colors">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Breadcrumb Navigation -->
@@ -66,39 +56,39 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
         <!-- Tags -->
         <div class="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
-            <span class="px-3.5 py-1 rounded-full text-xs font-bold text-white bg-brand-500 shadow-sm">
+            <span class="px-3.5 py-1 rounded-full text-xs font-extrabold text-white bg-[#B7410E] shadow-sm">
               #{tag}
             </span>
           ))}
         </div>
 
         <!-- H1 Article Title -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D241E] tracking-tight leading-tight">
           {post.title}
         </h1>
 
         <!-- Meta info: Author, Date, Reading Time -->
-        <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-pink-100 dark:border-slate-800 text-sm text-gray-600 dark:text-gray-300">
+        <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#DFD8B4] text-sm text-[#5A5046]">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-500 to-brand-400 text-white font-bold flex items-center justify-center shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#B7410E] to-[#D4541B] text-white font-bold flex items-center justify-center shadow-sm shadow-[#B7410E]/20">
               MB
             </div>
             <div>
-              <p class="font-bold text-gray-900 dark:text-white">{post.author}</p>
-              <p class="text-xs text-brand-600 dark:text-pink-300 font-semibold">Tim Spesialis Nutrisi MPASI Mamachy</p>
+              <p class="font-bold text-[#2D241E]">{post.author}</p>
+              <p class="text-xs text-[#B7410E] font-semibold">Tim Spesialis Nutrisi MPASI Mamachy</p>
             </div>
           </div>
 
           <div class="flex items-center gap-4 text-xs font-semibold">
             <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#B7410E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
               Dipublikasi: {formattedDate}
             </span>
             <span>•</span>
             <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#B7410E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               {post.readingTime}
@@ -107,7 +97,7 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
         </div>
 
         <!-- Featured Cover Image dengan Lazy Loading & Alt Text Wajib SEO -->
-        <div class="rounded-3xl overflow-hidden shadow-xl border border-pink-100 dark:border-slate-800 aspect-video relative">
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-[#DFD8B4] aspect-video relative">
           <img
             src={post.coverImage}
             alt={`${post.title} - Makanan bayi`}
@@ -121,45 +111,45 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
       </header>
 
       <!-- Article Main Content (Notion Blocks Rendering) -->
-      <div class="prose prose-pink dark:prose-invert max-w-none space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed text-base sm:text-lg">
+      <div class="prose max-w-none space-y-6 text-[#2D241E] leading-relaxed text-base sm:text-lg">
         
         {blocks.map((block) => {
           if (block.type === 'heading_1') {
-            return <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mt-8 mb-4">{block.content}</h1>;
+            return <h1 class="text-3xl font-extrabold text-[#2D241E] mt-8 mb-4">{block.content}</h1>;
           }
           if (block.type === 'heading_2') {
-            return <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-4">{block.content}</h2>;
+            return <h2 class="text-2xl font-bold text-[#2D241E] mt-8 mb-4 border-l-4 border-[#B7410E] pl-4">{block.content}</h2>;
           }
           if (block.type === 'heading_3') {
-            return <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-6 mb-3">{block.content}</h3>;
+            return <h3 class="text-xl font-bold text-[#2D241E] mt-6 mb-3">{block.content}</h3>;
           }
           if (block.type === 'paragraph') {
-            return <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">{block.content}</p>;
+            return <p class="text-[#4E443C] leading-relaxed mb-4">{block.content}</p>;
           }
           if (block.type === 'bulleted_list_item') {
             return (
-              <ul class="list-disc list-inside space-y-2 my-4 pl-4 text-gray-700 dark:text-gray-300">
+              <ul class="list-disc list-inside space-y-2 my-4 pl-4 text-[#4E443C]">
                 {block.items ? block.items.map((item) => <li>{item}</li>) : <li>{block.content}</li>}
               </ul>
             );
           }
           if (block.type === 'numbered_list_item') {
             return (
-              <ol class="list-decimal list-inside space-y-2 my-4 pl-4 text-gray-700 dark:text-gray-300">
+              <ol class="list-decimal list-inside space-y-2 my-4 pl-4 text-[#4E443C]">
                 {block.items ? block.items.map((item) => <li>{item}</li>) : <li>{block.content}</li>}
               </ol>
             );
           }
           if (block.type === 'quote') {
             return (
-              <blockquote class="p-6 my-6 rounded-2xl bg-pink-50 dark:bg-slate-800 border-l-4 border-brand-500 font-medium italic text-brand-900 dark:text-pink-200">
+              <blockquote class="p-6 my-6 rounded-2xl bg-[#FAF8EE] border-l-4 border-[#B7410E] font-medium italic text-[#2D241E] shadow-sm">
                 "{block.content}"
               </blockquote>
             );
           }
           if (block.type === 'code') {
             return (
-              <pre class="p-4 my-6 rounded-2xl bg-slate-900 text-pink-300 font-mono text-sm overflow-x-auto border border-slate-800">
+              <pre class="p-4 my-6 rounded-2xl bg-[#2D241E] text-[#F5F3E0] font-mono text-sm overflow-x-auto border border-[#DFD8B4]">
                 <code>{block.content}</code>
               </pre>
             );
@@ -171,10 +161,10 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
                   src={block.url}
                   alt={block.caption || `${post.title} - Makanan bayi`}
                   loading="lazy"
-                  class="w-full rounded-2xl shadow-md border border-pink-100 dark:border-slate-800"
+                  class="w-full rounded-2xl shadow-md border border-[#DFD8B4]"
                 />
                 {block.caption && (
-                  <figcaption class="text-center text-xs text-gray-500 dark:text-gray-400 mt-2 font-medium">
+                  <figcaption class="text-center text-xs text-[#5A5046] mt-2 font-medium">
                     {block.caption}
                   </figcaption>
                 )}
@@ -187,14 +177,14 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
       </div>
 
       <!-- Share & CTA Banner Internal -->
-      <div class="my-12 p-8 rounded-3xl bg-gradient-to-r from-pink-50 via-white to-pink-100/60 dark:from-slate-800 dark:to-slate-900 border border-pink-200 dark:border-slate-700 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="my-12 p-8 rounded-3xl bg-[#FAF8EE] border border-[#DFD8B4] shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="space-y-2">
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ingin Sajian MPASI Mamachy Bergizi Tanpa Repot?</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Sedia varian puree kaya zat besi untuk menemani tumbuh kembang anak.</p>
+          <h3 class="text-xl font-bold text-[#2D241E]">Ingin Sajian MPASI Mamachy Bergizi Tanpa Repot?</h3>
+          <p class="text-sm text-[#4E443C]">Sedia varian puree kaya zat besi untuk menemani tumbuh kembang anak.</p>
         </div>
         <a
           href="/produk"
-          class="px-7 py-3 rounded-full text-sm font-extrabold text-white bg-brand-500 hover:bg-brand-600 shadow-md shrink-0 transition-all"
+          class="px-7 py-3 rounded-full text-sm font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/20 shrink-0 transition-all"
         >
           Lihat Produk MPASI
         </a>
@@ -204,13 +194,13 @@ const formattedDate = new Date(post.date).toLocaleDateString('id-ID', {
 
     <!-- Related Articles Section (3 Artikel Terkait) -->
     {relatedPosts.length > 0 && (
-      <section class="mt-16 py-16 bg-pink-50/40 dark:bg-slate-950/60 border-t border-pink-100 dark:border-slate-800">
+      <section class="mt-16 py-16 bg-[#F5F3E0] border-t border-[#DFD8B4]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="mb-10 text-center sm:text-left">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-[#B7410E]">
               Rekomendasi Bacaan Mama
             </span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2D241E] mt-1">
               Artikel Terkait Lainnya
             </h2>
           </div>

@@ -6,42 +6,85 @@
 
 @layer base {
   :root {
-    --bg-main: #FFFBF7;
-    --text-main: #1F2937;
-    --card-bg: rgba(255, 255, 255, 0.85);
+    --bg-main: #F5F3E0;
+    --text-main: #2D241E;
+    --card-bg: #FAF8EE;
+    --color-brick: #B7410E;
+    --color-beige: #F5F3E0;
+    --border-beige: #DFD8B4;
   }
 
-  .dark {
-    --bg-main: #0F172A;
-    --text-main: #F8FAFC;
-    --card-bg: rgba(30, 41, 59, 0.85);
+  html {
+    background-color: #F5F3E0;
+    color: #2D241E;
+    scroll-behavior: smooth;
   }
 
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #F5F3E0;
+    color: #2D241E;
+    min-height: 100vh;
+  }
+
+  strong {
+    color: #B7410E;
+    font-weight: 700;
   }
 }
 
-/* Custom Utilities for Edukasi MPASI Theme */
-.pink-gradient-text {
-  background: linear-gradient(135deg, #EC4899 0%, #DB2777 50%, #9D174D 100%);
+/* Custom Gradients & Utilities for Beige & Merah Bata Theme */
+.pink-gradient-text,
+.brick-gradient-text,
+.accent-gradient-text {
+  background: linear-gradient(135deg, #B7410E 0%, #D4541B 50%, #8C2C07 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.pink-glass {
-  background: rgba(255, 240, 245, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(244, 114, 182, 0.2);
+.bg-beige-gradient {
+  background: linear-gradient(180deg, #FAF8EE 0%, #F5F3E0 50%, #ECE6C8 100%);
 }
 
-.dark .pink-glass {
-  background: rgba(30, 41, 59, 0.8);
-  border: 1px solid rgba(219, 39, 119, 0.3);
+.bg-beige-subtle {
+  background: linear-gradient(180deg, #F5F3E0 0%, #FAF8EE 50%, #F5F3E0 100%);
+}
+
+.bg-beige-card {
+  background-color: #FAF8EE;
+}
+
+.border-beige {
+  border-color: #DFD8B4;
+}
+
+.pink-glass,
+.beige-glass {
+  background: rgba(245, 243, 224, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 65, 14, 0.2);
+}
+
+/* Buttons */
+.btn-brick {
+  background-color: #B7410E;
+  color: #FFFFFF;
+  transition: all 0.2s ease-in-out;
+}
+.btn-brick:hover {
+  background-color: #96340B;
+}
+
+.btn-brick-outline {
+  background-color: #FAF8EE;
+  color: #B7410E;
+  border: 2px solid #B7410E;
+  transition: all 0.2s ease-in-out;
+}
+.btn-brick-outline:hover {
+  background-color: #B7410E;
+  color: #FFFFFF;
 }
 
 /* Custom Scrollbar */
@@ -50,18 +93,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF0F5;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #F5F3E0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #F472B6;
+  background: #B7410E;
   border-radius: 9999px;
+  border: 2px solid #F5F3E0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #EC4899;
+  background: #96340B;
 }

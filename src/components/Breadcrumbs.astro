@@ -11,10 +11,10 @@ export interface Props {
 const { items } = Astro.props;
 ---
 
-<nav aria-label="Breadcrumb" class="my-4 text-sm font-medium">
-  <ol class="flex items-center flex-wrap gap-2 text-gray-500 dark:text-gray-400">
+<nav aria-label="Breadcrumb" class="my-4 text-sm font-semibold">
+  <ol class="flex items-center flex-wrap gap-2 text-[#5A5046]">
     <li class="inline-flex items-center">
-      <a href="/" class="inline-flex items-center hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+      <a href="/" class="inline-flex items-center hover:text-[#B7410E] transition-colors">
         <svg class="w-4 h-4 mr-1.5 fill-current" viewBox="0 0 20 20">
           <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l1.293 1.293a1 1 0 001.414-1.414l-7-7z"></path>
         </svg>
@@ -24,15 +24,15 @@ const { items } = Astro.props;
 
     {items.map((item, index) => (
       <li class="flex items-center">
-        <svg class="w-4 h-4 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 text-[#B8AC7E] mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
         </svg>
         {item.url ? (
-          <a href={item.url} class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+          <a href={item.url} class="hover:text-[#B7410E] transition-colors">
             {item.name}
           </a>
         ) : (
-          <span class="text-brand-600 dark:text-brand-400 font-semibold truncate max-w-[200px] sm:max-w-xs" aria-current="page">
+          <span class="text-[#B7410E] font-extrabold truncate max-w-[200px] sm:max-w-xs" aria-current="page">
             {item.name}
           </span>
         )}

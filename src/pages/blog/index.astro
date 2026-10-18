@@ -23,7 +23,7 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
   description={metaDescription}
   breadcrumbs={breadcrumbs}
 >
-  <div class="bg-gradient-to-b from-pink-50/60 to-white dark:from-slate-900 dark:to-slate-950 py-12 transition-colors">
+  <div class="bg-gradient-to-b from-[#FAF8EE] via-[#F5F3E0] to-[#FAF8EE] min-h-screen py-12 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Breadcrumbs -->
@@ -31,13 +31,13 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
 
       <!-- Header Section -->
       <div class="text-center max-w-3xl mx-auto my-8 space-y-4">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/80 px-4 py-1.5 rounded-full inline-block">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#B7410E] bg-[#FAF0E6] px-4 py-1.5 rounded-full inline-block border border-[#B7410E]/30 shadow-sm">
           Edukasi Makanan Pendamping Bayi
         </span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-[#2D241E] tracking-tight">
           Pusat Edukasi <span class="pink-gradient-text">MPASI & Nutrisi Bayi</span>
         </h1>
-        <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p class="text-base text-[#4E443C] leading-relaxed">
           Temukan ratusan tips medis terpercaya, resep olahan MPASI Mamachy, dan panduan tumbuh kembang si kecil yang ditulis khusus untuk mama muda Indonesia.
         </p>
       </div>
@@ -50,9 +50,9 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
             type="text"
             id="blog-search"
             placeholder="Cari topik MPASI (contoh: Zat Besi, GTM, 6 Bulan)..."
-            class="w-full px-5 py-3.5 pl-12 rounded-full border border-pink-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-400 text-sm font-medium shadow-sm focus:ring-2 focus:ring-brand-500 focus:outline-none transition-all"
+            class="w-full px-5 py-3.5 pl-12 rounded-full border border-[#DFD8B4] bg-[#FAF8EE] text-[#2D241E] placeholder-[#5A5046]/60 text-sm font-medium shadow-sm focus:ring-2 focus:ring-[#B7410E] focus:outline-none transition-all"
           />
-          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-[#B7410E] absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </div>
@@ -61,14 +61,14 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
         <div class="flex flex-wrap items-center justify-center gap-2" id="tag-filter-container">
           <button
             data-tag="all"
-            class="tag-btn px-4 py-2 rounded-full text-xs font-bold text-white bg-brand-500 shadow-md transition-all active-tag"
+            class="tag-btn px-4 py-2 rounded-full text-xs font-extrabold text-white bg-[#B7410E] border border-[#B7410E] shadow-md shadow-[#B7410E]/20 transition-all active-tag"
           >
             Semua Artikel ({posts.length})
           </button>
           {allTags.map((tag) => (
             <button
               data-tag={tag}
-              class="tag-btn px-4 py-2 rounded-full text-xs font-bold text-gray-700 dark:text-gray-200 bg-white dark:bg-slate-800 border border-pink-200 dark:border-slate-700 hover:border-brand-400 transition-all"
+              class="tag-btn px-4 py-2 rounded-full text-xs font-bold text-[#B7410E] bg-[#FAF8EE] border border-[#DFD8B4] hover:border-[#B7410E] hover:bg-[#FAF0E6] transition-all"
             >
               #{tag}
             </button>
@@ -91,21 +91,21 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
       </div>
 
       <!-- Empty State Result -->
-      <div id="empty-state" class="hidden text-center py-16 bg-white dark:bg-slate-800 rounded-3xl p-8 border border-pink-100 dark:border-slate-700 my-8">
+      <div id="empty-state" class="hidden text-center py-16 bg-[#FAF8EE] rounded-3xl p-8 border border-[#DFD8B4] my-8">
         <span class="text-4xl mb-3 block">🔍</span>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Tidak ada artikel yang cocok</h3>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Coba kata kunci lain atau pilih kategori topik di atas.</p>
+        <h3 class="text-lg font-bold text-[#2D241E]">Tidak ada artikel yang cocok</h3>
+        <p class="text-xs text-[#5A5046] mt-1">Coba kata kunci lain atau pilih kategori topik di atas.</p>
       </div>
 
       <!-- Bottom Banner CTA -->
-      <div class="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-pink-100 via-pink-50 to-white dark:from-slate-800 dark:to-slate-900 border border-pink-200 dark:border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+      <div class="mt-20 p-8 sm:p-12 rounded-3xl bg-[#FAF8EE] border border-[#DFD8B4] flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
         <div class="space-y-2 text-center md:text-left">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Punya Pertanyaan Seputar MPASI Si Kecil?</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Tim AHLI Nutrisi Mamachy siap membantumu kapan saja via WhatsApp!</p>
+          <h3 class="text-2xl font-bold text-[#2D241E]">Punya Pertanyaan Seputar MPASI Si Kecil?</h3>
+          <p class="text-sm text-[#4E443C]">Tim AHLI Nutrisi Mamachy siap membantumu kapan saja via WhatsApp!</p>
         </div>
         <a
           href="/kontak"
-          class="px-8 py-3.5 rounded-full text-sm font-extrabold text-white bg-brand-600 hover:bg-brand-700 shadow-md shrink-0 transition-all"
+          class="px-8 py-3.5 rounded-full text-sm font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/20 shrink-0 transition-all"
         >
           Konsultasi Gratis Sekarang
         </a>
@@ -156,12 +156,12 @@ const metaDescription = "Kumpulan artikel edukasi MPASI terlengkap untuk mama mu
     tagBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         tagBtns.forEach((b) => {
-          b.classList.remove('bg-brand-500', 'text-white', 'shadow-md', 'active-tag');
-          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-gray-700', 'dark:text-gray-200');
+          b.classList.remove('bg-[#B7410E]', 'text-white', 'shadow-md', 'active-tag');
+          b.classList.add('bg-[#FAF8EE]', 'text-[#B7410E]', 'border-[#DFD8B4]');
         });
 
-        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-gray-700', 'dark:text-gray-200');
-        btn.classList.add('bg-brand-500', 'text-white', 'shadow-md', 'active-tag');
+        btn.classList.remove('bg-[#FAF8EE]', 'text-[#B7410E]', 'border-[#DFD8B4]');
+        btn.classList.add('bg-[#B7410E]', 'text-white', 'shadow-md', 'active-tag');
 
         currentTag = btn.getAttribute('data-tag') || 'all';
         filterPosts();

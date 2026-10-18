@@ -1,30 +1,30 @@
 ---
 ---
 
-<div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-10 border border-pink-200 dark:border-slate-700 shadow-xl max-w-4xl mx-auto my-8 transition-all">
+<div class="bg-[#FAF8EE] rounded-3xl p-6 sm:p-10 border border-[#DFD8B4] shadow-xl max-w-4xl mx-auto my-8 transition-all">
   <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
-    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-pink-400 bg-pink-100 dark:bg-brand-950/80 px-4 py-1.5 rounded-full inline-block">
+    <span class="text-xs font-extrabold uppercase tracking-widest text-[#B7410E] bg-[#FAF0E6] px-4 py-1.5 rounded-full inline-block border border-[#B7410E]/30 shadow-sm">
       Kalkulator Nutrisi & Porsi MPASI
     </span>
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
-      Hitung Kebutuhan & Tekstur MPASI Si Kecil
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2D241E]">
+      Hitung Kebutuhan & Tekstur <span class="pink-gradient-text">MPASI Si Kecil</span>
     </h2>
-    <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+    <p class="text-xs sm:text-sm text-[#4E443C]">
       Masukkan usia dan berat badan anak mama untuk mendapatkan panduan porsi, jadwal, serta rekomendasi varian MPASI Mamachy.
     </p>
   </div>
 
   <!-- Interactive Form Inputs -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 bg-pink-50/50 dark:bg-slate-900/60 p-6 rounded-2xl border border-pink-100 dark:border-slate-700">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 bg-[#F5F3E0] p-6 rounded-2xl border border-[#DFD8B4]">
     
     <!-- Usia Bayi Select -->
     <div class="space-y-2">
-      <label class="block text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+      <label class="block text-xs font-extrabold text-[#2D241E] uppercase tracking-wider">
         1. Usia Bayi
       </label>
       <select
         id="calc-age"
-        class="w-full px-4 py-3 rounded-xl border border-pink-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none"
+        class="w-full px-4 py-3 rounded-xl border border-[#DFD8B4] bg-[#FAF8EE] text-[#2D241E] text-sm font-semibold focus:ring-2 focus:ring-[#B7410E] focus:outline-none"
       >
         <option value="6">6 Bulan (Awal MPASI)</option>
         <option value="7-8">7 - 8 Bulan</option>
@@ -35,7 +35,7 @@
 
     <!-- Berat Badan Input -->
     <div class="space-y-2">
-      <label class="block text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+      <label class="block text-xs font-extrabold text-[#2D241E] uppercase tracking-wider">
         2. Berat Badan (Kg)
       </label>
       <input
@@ -45,18 +45,18 @@
         max="18"
         step="0.1"
         value="7.5"
-        class="w-full px-4 py-3 rounded-xl border border-pink-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none"
+        class="w-full px-4 py-3 rounded-xl border border-[#DFD8B4] bg-[#FAF8EE] text-[#2D241E] text-sm font-semibold focus:ring-2 focus:ring-[#B7410E] focus:outline-none"
       />
     </div>
 
     <!-- Kondisi / Status Makan -->
     <div class="space-y-2">
-      <label class="block text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+      <label class="block text-xs font-extrabold text-[#2D241E] uppercase tracking-wider">
         3. Kondisi Makan
       </label>
       <select
         id="calc-status"
-        class="w-full px-4 py-3 rounded-xl border border-pink-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none"
+        class="w-full px-4 py-3 rounded-xl border border-[#DFD8B4] bg-[#FAF8EE] text-[#2D241E] text-sm font-semibold focus:ring-2 focus:ring-[#B7410E] focus:outline-none"
       >
         <option value="normal">Lahap / Normal</option>
         <option value="gtm">GTM (Tutup Mulut)</option>
@@ -67,13 +67,13 @@
   </div>
 
   <!-- Result Display Box -->
-  <div id="calc-results" class="bg-gradient-to-r from-pink-50 via-white to-pink-100/60 dark:from-slate-900 dark:to-slate-800 p-6 sm:p-8 rounded-2xl border-2 border-brand-300 dark:border-brand-900 space-y-6">
+  <div id="calc-results" class="bg-[#FAF8EE] p-6 sm:p-8 rounded-2xl border-2 border-[#B7410E] space-y-6 shadow-md">
     
-    <div class="flex items-center justify-between border-b border-pink-200 dark:border-slate-700 pb-4">
-      <h3 class="text-lg font-extrabold text-brand-700 dark:text-pink-300 flex items-center gap-2">
+    <div class="flex items-center justify-between border-b border-[#DFD8B4] pb-4">
+      <h3 class="text-lg font-extrabold text-[#B7410E] flex items-center gap-2">
         <span>📊</span> Hasil Rekomendasi Nutrisi MPASI
       </h3>
-      <span id="res-badge" class="px-3 py-1 rounded-full text-xs font-bold text-white bg-brand-500">
+      <span id="res-badge" class="px-3.5 py-1 rounded-full text-xs font-extrabold text-white bg-[#B7410E] shadow-sm">
         Puree Halus
       </span>
     </div>
@@ -81,36 +81,36 @@
     <!-- Recommendations Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
       
-      <div class="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-pink-100 dark:border-slate-700">
-        <div class="text-xs text-gray-500 dark:text-gray-400 font-bold mb-1">Tekstur Makanan</div>
-        <div id="res-texture" class="text-sm font-extrabold text-gray-900 dark:text-white">Puree Halus (Lumat)</div>
+      <div class="p-4 rounded-xl bg-[#F5F3E0] shadow-sm border border-[#DFD8B4]">
+        <div class="text-xs text-[#5A5046] font-bold mb-1">Tekstur Makanan</div>
+        <div id="res-texture" class="text-sm font-extrabold text-[#2D241E]">Puree Halus (Lumat)</div>
       </div>
 
-      <div class="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-pink-100 dark:border-slate-700">
-        <div class="text-xs text-gray-500 dark:text-gray-400 font-bold mb-1">Frekuensi & Porsi</div>
-        <div id="res-portion" class="text-sm font-extrabold text-gray-900 dark:text-white">2x Sehari (2-3 sdm)</div>
+      <div class="p-4 rounded-xl bg-[#F5F3E0] shadow-sm border border-[#DFD8B4]">
+        <div class="text-xs text-[#5A5046] font-bold mb-1">Frekuensi & Porsi</div>
+        <div id="res-portion" class="text-sm font-extrabold text-[#2D241E]">2x Sehari (2-3 sdm)</div>
       </div>
 
-      <div class="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-pink-100 dark:border-slate-700">
-        <div class="text-xs text-gray-500 dark:text-gray-400 font-bold mb-1">Target AKG Zat Besi</div>
-        <div id="res-iron" class="text-sm font-extrabold text-brand-600 dark:text-pink-400">11 mg / hari</div>
+      <div class="p-4 rounded-xl bg-[#F5F3E0] shadow-sm border border-[#DFD8B4]">
+        <div class="text-xs text-[#5A5046] font-bold mb-1">Target AKG Zat Besi</div>
+        <div id="res-iron" class="text-sm font-extrabold text-[#B7410E]">11 mg / hari</div>
       </div>
 
-      <div class="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-pink-100 dark:border-slate-700">
-        <div class="text-xs text-gray-500 dark:text-gray-400 font-bold mb-1">Kebutuhan Kalori MPASI</div>
-        <div id="res-calories" class="text-sm font-extrabold text-brand-600 dark:text-pink-400">~200 kkal / hari</div>
+      <div class="p-4 rounded-xl bg-[#F5F3E0] shadow-sm border border-[#DFD8B4]">
+        <div class="text-xs text-[#5A5046] font-bold mb-1">Kebutuhan Kalori MPASI</div>
+        <div id="res-calories" class="text-sm font-extrabold text-[#B7410E]">~200 kkal / hari</div>
       </div>
 
     </div>
 
     <!-- Recommended Product Banner -->
-    <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-pink-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="p-5 rounded-2xl bg-[#F5F3E0] border border-[#DFD8B4] flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="space-y-1 text-center sm:text-left">
-        <span class="text-[11px] font-bold text-brand-600 dark:text-pink-300 uppercase tracking-wider">Rekomendasi Varian MPASI Mamachy</span>
-        <h4 id="res-product-name" class="text-base font-extrabold text-gray-900 dark:text-white">
+        <span class="text-[11px] font-extrabold text-[#B7410E] uppercase tracking-wider">Rekomendasi Varian MPASI Mamachy</span>
+        <h4 id="res-product-name" class="text-base font-extrabold text-[#2D241E]">
           MPASI Mamachy Varian Hati Ayam & Bayam
         </h4>
-        <p id="res-product-desc" class="text-xs text-gray-600 dark:text-gray-300">
+        <p id="res-product-desc" class="text-xs text-[#4E443C]">
           Formulasi tinggi zat besi dan asam folat alami untuk awal MPASI 6 bulan yang aman & mudah dicerna.
         </p>
       </div>
@@ -120,7 +120,7 @@
         href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20menu%20rekomendasi%20Kalkulator%20MPASI"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-6 py-3 rounded-full text-xs font-extrabold text-white bg-brand-500 hover:bg-brand-600 shadow-md shrink-0 transition-all"
+        class="px-6 py-3 rounded-full text-xs font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/20 shrink-0 transition-all"
       >
         Pesan Varian Ini via WA &rarr;
       </a>
