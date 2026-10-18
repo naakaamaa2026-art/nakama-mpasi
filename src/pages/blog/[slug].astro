@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BlogCard from '../../components/BlogCard.astro';
-import { getPublishedPosts, getPostBySlug, getPostBlocks } from '../../lib/notion';
+import { getPublishedPosts, getPostBySlug, getNotionBlocks } from '../../lib/notion';
 
 // Static Paths untuk Astro SSG Build
 export async function getStaticPaths() {
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const blocks = await getPostBlocks(post.id);
+const blocks = await getNotionBlocks(post.id, post.slug);
 
 // Fetch artikel terkait (ambil 3 artikel lain selain artikel yang sedang aktif)
 const allPosts = await getPublishedPosts();
