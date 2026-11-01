@@ -10,7 +10,7 @@
       Hitung Kebutuhan & Tekstur <span class="pink-gradient-text">MPASI Si Kecil</span>
     </h2>
     <p class="text-xs sm:text-sm text-[#4E443C]">
-      Masukkan usia dan berat badan anak mama untuk mendapatkan panduan porsi, jadwal, serta rekomendasi varian MPASI Mamachy.
+      Masukkan usia dan berat badan anak mama untuk mendapatkan panduan porsi, jadwal, serta rekomendasi varian Nakama MPASI.
     </p>
   </div>
 
@@ -106,9 +106,9 @@
     <!-- Recommended Product Banner -->
     <div class="p-5 rounded-2xl bg-[#F5F3E0] border border-[#DFD8B4] flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="space-y-1 text-center sm:text-left">
-        <span class="text-[11px] font-extrabold text-[#B7410E] uppercase tracking-wider">Rekomendasi Varian MPASI Mamachy</span>
+        <span class="text-[11px] font-extrabold text-[#B7410E] uppercase tracking-wider">Rekomendasi Varian Nakama MPASI</span>
         <h4 id="res-product-name" class="text-base font-extrabold text-[#2D241E]">
-          MPASI Mamachy Varian Hati Ayam & Bayam
+          Nakama MPASI Varian Hati Ayam & Bayam
         </h4>
         <p id="res-product-desc" class="text-xs text-[#4E443C]">
           Formulasi tinggi zat besi dan asam folat alami untuk awal MPASI 6 bulan yang aman & mudah dicerna.
@@ -117,7 +117,7 @@
 
       <a
         id="res-wa-link"
-        href="https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20menu%20rekomendasi%20Kalkulator%20MPASI"
+        href="https://wa.me/6281234567890?text=Halo%20Nakama MPASI,%20saya%20mau%20pesan%20menu%20rekomendasi%20Kalkulator%20MPASI"
         target="_blank"
         rel="noopener noreferrer"
         class="px-6 py-3 rounded-full text-xs font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/20 shrink-0 transition-all"
@@ -159,25 +159,25 @@
       texture = 'Puree Halus (Lumat)';
       portion = status === 'gtm' ? '2-3x Sehari (1-2 sdm bertahap)' : '2-3x Sehari (2-3 sdm)';
       calories = '~200 kkal / hari';
-      prodName = 'MPASI Mamachy Varian Hati Ayam & Bayam';
+      prodName = 'Nakama MPASI Varian Hati Ayam & Bayam';
       prodDesc = 'Sangat kaya zat besi alami dari hati ayam & asam folat bayam Jepang. Tekstur halus mudah dicerna bayi 6 bulan.';
     } else if (age === '7-8') {
       texture = 'Saring / Semi Halus';
       portion = status === 'weight-gain' ? '3x Makan + 2x Selingan (3-4 sdm)' : '2-3x Makan Utama (2-4 sdm)';
       calories = '~250-300 kkal / hari';
-      prodName = 'MPASI Mamachy Varian Hati Ayam & Daging Sapi';
+      prodName = 'Nakama MPASI Varian Hati Ayam & Daging Sapi';
       prodDesc = 'Double protein hewani untuk mengoptimalkan kenaikan berat badan dan stimulasi motorik oromotor.';
     } else if (age === '9-11') {
       texture = 'Cincang Halus / Chopped';
       portion = '3x Makan + 1-2x Selingan (1/2 mangkuk kecil)';
       calories = '~300-400 kkal / hari';
-      prodName = 'MPASI Mamachy Daging Sapi & Butter';
+      prodName = 'Nakama MPASI Daging Sapi & Butter';
       prodDesc = 'Tekstur cincang lembut dengan aromatik unsalted butter yang membangkitkan selera makan bayi saat tumbuh gigi.';
     } else {
       texture = 'Nasi Tim Lembek / Makanan Keluarga';
       portion = '3x Makan Utama + 2x Selingan (3/4 - 1 mangkuk)';
       calories = '~550-600 kkal / hari';
-      prodName = 'MPASI Mamachy Salmon & Ubi Manis';
+      prodName = 'Nakama MPASI Salmon & Ubi Manis';
       prodDesc = 'Kaya Omega-3 & DHA untuk perkembangan otak emas si kecil usia 1-2 tahun.';
     }
 
@@ -189,7 +189,7 @@
     if (resProductName) resProductName.textContent = prodName;
     if (resProductDesc) resProductDesc.textContent = prodDesc;
     if (resWaLink) {
-      resWaLink.href = `https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20${encodeURIComponent(prodName)}%20(Usia%20${age}%20Bulan,%20BB%20${weight}kg)`;
+      resWaLink.href = `https://wa.me/6281234567890?text=Halo%20Nakama MPASI,%20saya%20mau%20pesan%20${encodeURIComponent(prodName)}%20(Usia%20${age}%20Bulan,%20BB%20${weight}kg)`;
     }
   }
 

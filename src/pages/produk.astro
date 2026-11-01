@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const breadcrumbs = [
-  { name: 'Katalog Produk MPASI Mamachy', url: '/produk' }
+  { name: 'Katalog Produk Nakama MPASI', url: '/produk' }
 ];
 
 const products = [
   {
     id: 1,
-    name: 'MPASI Mamachy Varian Hati Ayam & Bayam',
+    name: 'Nakama MPASI Varian Hati Ayam & Bayam',
     stage: 'Usia 6 Bulan + (Puree Halus)',
     price: 'Rp 28.000 / porsi',
     image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80',
@@ -18,7 +18,7 @@ const products = [
   },
   {
     id: 2,
-    name: 'MPASI Mamachy Daging Sapi & Butter',
+    name: 'Nakama MPASI Daging Sapi & Butter',
     stage: 'Usia 8 Bulan + (Chop/Cincang Halus)',
     price: 'Rp 32.000 / porsi',
     image: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=800&q=80',
@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: 3,
-    name: 'MPASI Mamachy Salmon & Ubi Manis',
+    name: 'Nakama MPASI Salmon & Ubi Manis',
     stage: 'Usia 12 Bulan + (Nasi Tim/Lembek)',
     price: 'Rp 35.000 / porsi',
     image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80',
@@ -36,11 +36,11 @@ const products = [
   }
 ];
 
-const metaDescription = "Katalog resmi MPASI Mamachy. Makanan bayi organik kaya zat besi dan protein hewani tanpa pengawet. Tersedia untuk usia 6-24 bulan.";
+const metaDescription = "Katalog resmi Nakama MPASI. Makanan bayi organik kaya zat besi dan protein hewani tanpa pengawet. Tersedia untuk usia 6-24 bulan.";
 ---
 
 <Layout
-  title="Katalog Produk MPASI Mamachy | Makanan Bayi Organik Sehat"
+  title="Katalog Produk Nakama MPASI | Makanan Bayi Organik Sehat"
   description={metaDescription}
   breadcrumbs={breadcrumbs}
 >
@@ -51,10 +51,10 @@ const metaDescription = "Katalog resmi MPASI Mamachy. Makanan bayi organik kaya 
 
       <div class="text-center max-w-3xl mx-auto my-10 space-y-4">
         <span class="text-xs font-extrabold uppercase tracking-widest text-[#B7410E] bg-[#FAF0E6] px-4 py-1.5 rounded-full inline-block border border-[#B7410E]/30 shadow-sm">
-          Produk Unggulan Mamachy
+          Produk Unggulan Nakama MPASI
         </span>
         <h1 class="text-3xl sm:text-5xl font-extrabold text-[#2D241E] tracking-tight">
-          Varian Sehat <span class="pink-gradient-text">MPASI Mamachy</span>
+          Varian Sehat <span class="pink-gradient-text">Nakama MPASI</span>
         </h1>
         <p class="text-base text-[#4E443C]">
           Setiap menu diracik berdasarkan standar kecukupan angka gizi harian (AKG) anak untuk <strong class="text-[#B7410E] font-bold">menemani tumbuh kembang anak</strong> secara optimal.
@@ -90,7 +90,7 @@ const metaDescription = "Katalog resmi MPASI Mamachy. Makanan bayi organik kaya 
             <div class="p-6 pt-0 space-y-4">
               <div class="text-xl font-extrabold text-[#B7410E]">{item.price}</div>
               <a
-                href={`https://wa.me/6281234567890?text=Halo%20Mamachy,%20saya%20mau%20pesan%20${encodeURIComponent(item.name)}`}
+                href={`https://wa.me/6281234567890?text=Halo%20Nakama MPASI,%20saya%20mau%20pesan%20${encodeURIComponent(item.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="block w-full text-center py-3.5 rounded-full text-sm font-extrabold text-white bg-[#B7410E] hover:bg-[#96340B] shadow-md shadow-[#B7410E]/25 transition-all"

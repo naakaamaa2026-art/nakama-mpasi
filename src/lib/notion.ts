@@ -69,17 +69,17 @@ const MOCK_POSTS: BlogPost[] = [
     tags: ['MPASI 6 Bulan', 'Panduan MPASI', 'Nutrisi Bayi'],
     excerpt: 'Memulai perjalanan MPASI si kecil? Pelajari jadwal, pilihan bahan makanan tunggal vs 4 bintang, dan cara mengatur tekstur puree yang aman untuk bayi 6 bulan.',
     coverImage: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1200&q=80',
-    author: 'Tim Nutrisi Mamachy',
+    author: 'Tim Nutrisi Nakama MPASI',
     readingTime: '4 min baca',
   },
   {
     id: 'mock-2',
-    title: '5 Resep Puree MPASI Mamachy Praktis Kaya Zat Besi untuk Cegah Stunting',
-    slug: '5-resep-puree-mpasi-mamachy-zat-besi',
+    title: '5 Resep Puree Nakama MPASI Praktis Kaya Zat Besi untuk Cegah Stunting',
+    slug: '5-resep-puree-mpasi-nakama-mpasi-zat-besi',
     status: 'Published',
     date: '2026-09-20',
-    tags: ['Resep MPASI', 'Zat Besi', 'MPASI Mamachy'],
-    excerpt: 'Zat besi sangat krusial untuk perkembangan otak bayi. Temukan 5 variasi menu MPASI homemade Mamachy berbasis hati ayam, daging sapi, dan bayam Jepang.',
+    tags: ['Resep MPASI', 'Zat Besi', 'Nakama MPASI'],
+    excerpt: 'Zat besi sangat krusial untuk perkembangan otak bayi. Temukan 5 variasi menu MPASI homemade Nakama MPASI berbasis hati ayam, daging sapi, dan bayam Jepang.',
     coverImage: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1200&q=80',
     author: 'Dr. Tiara, Sp.A',
     readingTime: '5 min baca',
@@ -91,9 +91,9 @@ const MOCK_POSTS: BlogPost[] = [
     status: 'Published',
     date: '2026-09-15',
     tags: ['Tips Mama', 'GTM Bayi', 'Edukasi MPASI'],
-    excerpt: 'Si kecil mendadak tutup mulut saat makan? Jangan panik Ma! Kenali pemicu GTM dan trik variasi penyajian MPASI Mamachy yang ampuh membangkitkan selera makan.',
+    excerpt: 'Si kecil mendadak tutup mulut saat makan? Jangan panik Ma! Kenali pemicu GTM dan trik variasi penyajian Nakama MPASI yang ampuh membangkitkan selera makan.',
     coverImage: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80',
-    author: 'Tim Nutrisi Mamachy',
+    author: 'Tim Nutrisi Nakama MPASI',
     readingTime: '3 min baca',
   },
   {
@@ -105,7 +105,7 @@ const MOCK_POSTS: BlogPost[] = [
     tags: ['Nutrisi Bayi', 'Tips Mama', 'Edukasi MPASI'],
     excerpt: 'Lemak tambahan penting untuk meningkatkan kalori MPASI dan menunjang tumbuh kembang otak bayi. Simak perbandingan manfaat santan, butter, dan olive oil.',
     coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=80',
-    author: 'Tim Nutrisi Mamachy',
+    author: 'Tim Nutrisi Nakama MPASI',
     readingTime: '4 min baca',
   }
 ];
@@ -115,9 +115,9 @@ const MOCK_BLOCKS: Record<string, NotionBlock[]> = {
     { id: 'b1', type: 'heading_2', content: 'Mengapa MPASI Dimulai Usia 6 Bulan?' },
     { id: 'b2', type: 'paragraph', content: 'Pada usia 6 bulan, ASI saja sudah tidak lagi mencukupi kebutuhan nutrisi makro dan mikro si kecil, terutama **zat besi** dan **kalori**. MPASI (Makanan Pendamping ASI) hadir untuk melengkapi kebutuhan gizi tumbuh kembang anak secara optimal.' },
     { id: 'b3', type: 'heading_3', content: 'Tanda-tanda Bayi Siap Menerima MPASI' },
-    { id: 'b4', type: 'paragraph', content: 'Sebelum mulai menyuapkan MPASI Mamachy, pastikan Ma sudah melihat tanda kesiapan berikut:' },
+    { id: 'b4', type: 'paragraph', content: 'Sebelum mulai menyuapkan Nakama MPASI, pastikan Ma sudah melihat tanda kesiapan berikut:' },
     { id: 'b5', type: 'bulleted_list_item', items: ['Sudah bisa duduk tegak dengan leher stabil', 'Refleks menjulurkan lidah (extrusive reflex) berkurang', 'Tertarik melihat makanan orang dewasa di sekitarnya', 'Masih tampak lapar meski sudah diberi ASI/formula secara cukup'] },
-    { id: 'b6', type: 'heading_2', content: 'Prinsip Menu 4 Bintang MPASI Mamachy' },
+    { id: 'b6', type: 'heading_2', content: 'Prinsip Menu 4 Bintang Nakama MPASI' },
     { id: 'b7', type: 'paragraph', content: 'Menu MPASI yang sehat dan seimbang wajib mengandung 4 komponen utama gizi:' },
     { id: 'b8', type: 'numbered_list_item', items: ['**Karbohidrat**: Beras putih, beras merah, kentang, atau ubi jalar', '**Protein Hewani**: Daging sapi, hati ayam, telur, atau ikan salmon (Sangat dianjurkan disajikan setiap hari!)', '**Protein Nabati**: Tahu, tempe, atau kacang hijau', '**Sayuran & Lemak Tambahan**: Wortel, labu siam, minyak kelapa/butter'] },
     { id: 'b9', type: 'quote', content: 'Ingat Ma, protein hewani adalah kunci utama mencegah stunting pada 1000 Hari Pertama Kehidupan (HPK).' },
@@ -202,7 +202,7 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
 
       // 6. Excerpt
       const excerptObj = findProp('Excerpt') || findProp('Ringkasan') || findProp('Deskripsi');
-      const excerpt = excerptObj?.rich_text?.[0]?.plain_text || 'Baca panduan lengkap MPASI dan nutrisi bayi di Makanan Bayi Mamachy.';
+      const excerpt = excerptObj?.rich_text?.[0]?.plain_text || 'Baca panduan lengkap MPASI dan nutrisi bayi di Makanan Bayi Nakama MPASI.';
 
       // 7. Cover Image
       let coverImage = 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1200&q=80';
@@ -225,7 +225,7 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
         tags,
         excerpt,
         coverImage,
-        author: 'Tim Nutrisi Mamachy',
+        author: 'Tim Nutrisi Nakama MPASI',
         readingTime: calculateReadingTime(excerpt + ' ' + title + ' ' + tags.join(' ')),
       };
     });

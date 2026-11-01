@@ -1,6 +1,6 @@
-# 👶 Makanan Bayi & MPASI Mamachy - Website Blog Profesional
+# 👶 Makanan Bayi & Nakama MPASI - Website Blog Profesional
 
-Selamat datang di repository resmi **Makanan Bayi & MPASI Mamachy**! Website ini dibangun dari NOL menggunakan teknologi modern super cepat (**Astro v4 + Tailwind CSS + Notion CMS + TypeScript**).
+Selamat datang di repository resmi **Makanan Bayi & Nakama MPASI**! Website ini dibangun dari NOL menggunakan teknologi modern super cepat (**Astro v4 + Tailwind CSS + Notion CMS + TypeScript**).
 
 ---
 
@@ -85,7 +85,7 @@ Buka browser dan akses: `http://localhost:4321` 🎉
 ```bash
 git init
 git add .
-git commit -m "Initial commit Website Makanan Bayi MPASI Mamachy"
+git commit -m "Initial commit Website Makanan Bayi Nakama MPASI"
 git branch -M main
 git remote add origin https://github.com/USERNAME_KAMU/makanan-bayi.git
 git push -u origin main

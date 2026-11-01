@@ -2,7 +2,7 @@
   "name": "makanan-bayi",
   "type": "module",
   "version": "1.0.0",
-  "description": "Website blog profesional Makanan Bayi & MPASI Mamachy - Edukasi MPASI untuk Mama Muda",
+  "description": "Website blog profesional Makanan Bayi & Nakama MPASI - Edukasi MPASI untuk Mama Muda",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
