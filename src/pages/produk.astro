@@ -10,7 +10,7 @@ const products = [
   {
     id: 1,
     name: 'Nakama MPASI - Kremesan Daging Sapi (80 Gr)',
-    stage: 'Usia 11 Bulan + ',
+    stage: 'Usia 11 Bulan +',
     price: 'Rp 31.000 / porsi',
     image: '/images/produk-1.jpg',
     description: 'Pelengkap MPASI praktis untuk si kecil dengan formula Double Prohe. Terbuat dari bahan asli tanpa tambahan pengawet dan MSG, cocok untuk menambah tekstur dan selera makan harian',
@@ -18,22 +18,40 @@ const products = [
   },
   {
     id: 2,
-    name: 'Nakama MPASI Daging Sapi & Butter',
-    stage: 'Usia 8 Bulan + (Chop/Cincang Halus)',
-    price: 'Rp 32.000 / porsi',
-    image: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=800&q=80',
-    description: 'Daging sapi tenderloin kaya protein dengan aroma unsalted butter alami yang menggugah selera saat GTM.',
-    tags: ['Protein Tinggi', 'Lemak Tambahan', 'Cincang Halus']
+    name: 'Nakama MPASI - Kremesan Ikan Gabus Probiotik (80 Gr)',
+    stage: 'Usia 11 Bulan +',
+    price: 'Rp 31.000 / porsi',
+    image: '/images/Gabus-1.jpg',
+    description: 'Pelengkap MPASI praktis berbahan dasar ikan gabus untuk si kecil. Diformulasikan dengan Double Prohe dan probiotik, 100% Real Food tanpa tambahan pengawet dan MSG. Teman kecil bernutrisi di setiap suapan!',
+    tags: ['Double Prohe', 'Probiotik', 'Tanpa MSG']
   },
   {
     id: 3,
-    name: 'Nakama MPASI Salmon & Ubi Manis',
-    stage: 'Usia 12 Bulan + (Nasi Tim/Lembek)',
-    price: 'Rp 35.000 / porsi',
-    image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80',
-    description: 'Kaya Omega-3 & DHA untuk perkembangan sel otak bayi. Dilengkapi rasa manis alami ubi madu organik.',
-    tags: ['Omega-3 DHA', 'Nutrisi Otak', 'Tekstur Tim']
-  }
+    name: 'Nakama MPASI - Kremesan Ikan Lele Probiotik (80 Gr)',
+    stage: 'Usia 11 Bulan +',
+    price: 'Rp 31.000 / porsi',
+    image: '/images/Lele-1.jpg',
+    description: 'Pelengkap MPASI praktis berbahan dasar ikan lele untuk si kecil. Diformulasikan dengan Double Prohe dan probiotik, 100% Real Food tanpa tambahan pengawet dan MSG. Teman kecil bernutrisi di setiap suapan!',
+    tags: ['Double Prohe', 'Probiotik', 'Tanpa MSG']
+  },
+  {
+    id: 4,
+    name: 'Nakama MPASI - Kremesan Ikan Kembung Probiotik (80 Gr)',
+    stage: 'Usia 11 Bulan +',
+    price: 'Rp 31.000 / porsi',
+    image: '/images/Kembung-1.jpg',
+    description: 'Pelengkap MPASI praktis berbahan dasar ikan kembung untuk si kecil. Diformulasikan dengan Double Prohe dan probiotik, 100% Real Food tanpa tambahan pengawet dan MSG. Teman kecil bernutrisi di setiap suapan!',
+    tags: ['Double Prohe', 'Probiotik', 'Tanpa MSG']
+  },
+  {
+    id: 5,
+    name: 'Nakama MPASI - Kremesan Ikan Tenggiri Probiotik (80 Gr)',
+    stage: 'Usia 11 Bulan +',
+    price: 'Rp 31.000 / porsi',
+    image: '/images/Tenggiri-1.jpg',
+    description: 'Pelengkap MPASI praktis berbahan dasar ikan tenggiri untuk si kecil. Diformulasikan dengan Double Prohe dan probiotik, 100% Real Food tanpa tambahan pengawet dan MSG. Teman kecil bernutrisi di setiap suapan!',
+    tags: ['Double Prohe', 'Probiotik', 'Tanpa MSG']
+  },
 ];
 
 const metaDescription = "Katalog resmi Nakama MPASI. Makanan bayi organik kaya zat besi dan protein hewani tanpa pengawet. Tersedia untuk usia 6-24 bulan.";
@@ -66,9 +84,9 @@ const metaDescription = "Katalog resmi Nakama MPASI. Makanan bayi organik kaya z
         {products.map((item) => (
           <div class="bg-[#FAF8EE] rounded-3xl overflow-hidden border border-[#DFD8B4] hover:border-[#B7410E] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div class="relative aspect-video">
-                <img src={item.image} alt={`${item.name} - Makanan bayi`} loading="lazy" class="w-full h-full object-cover" />
-                <span class="absolute top-3 right-3 px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#FAF8EE] text-[#B7410E] border border-[#B7410E]/30 backdrop-blur-md shadow-md">
+              <div class="relative aspect-square bg-[#FAF0E6]/60 flex items-center justify-center overflow-hidden p-2">
+                <img src={item.image} alt={`${item.name} - Makanan bayi`} loading="lazy" class="w-full h-full object-contain rounded-2xl transition-transform duration-300 hover:scale-105" />
+                <span class="absolute top-3 right-3 px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#FAF8EE]/95 text-[#B7410E] border border-[#B7410E]/30 backdrop-blur-md shadow-md">
                   {item.stage}
                 </span>
               </div>
